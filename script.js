@@ -2,7 +2,40 @@ $(document).ready(function()
 {
 	$("body").append('<input id="clickMe" type="button" value="New" onclick="button_press(); return false"/>');
 	new_grid(16);	
-	var size = ((960)/16);
+});
+
+function button_press()
+{
+	$(".cell").css({
+		"background-color": "rgb(255,255,255)"}
+	);
+	var square_quantity = prompt("How many squares per side to make the new grid?");
+	new_grid(square_quantity);
+}
+
+function new_grid(square_quantity)
+{
+	$("#wrapper").remove();
+	$("body").append('<div id="wrapper"></div>');
+	var endrow = "";
+	for(var i=0;i<square_quantity;i++)
+	{
+		$("#wrapper").append('<div id=' + i + ' class="row"></div>');
+		for(var j=0;j<square_quantity;j++)
+		{
+			$(".row#"+i).append('<div class="cell"></div>');
+		}
+	}
+	var size = ((960)/square_quantity);
+	$(".row").css(
+		{"display":"inline-block"}
+	);
+	$(".cell").css(
+		{"border":"1px solid grey", 
+		"height" : ""+(size-2),
+		"width" : ""+(size-2),
+		"background-color":"rgb(255,255,255)"}
+	);
 	$(".row").css(
 		{"display":"inline-block"}
 	);
@@ -43,40 +76,6 @@ $(document).ready(function()
 		);
 		}
 	})
-});
-
-function button_press()
-{
-	$(".cell").css({
-		"background-color": "white"}
-	);
-	var square_quantity = prompt("How many squares per side to make the new grid?");
-	new_grid(square_quantity);
-}
-
-function new_grid(square_quantity)
-{
-	$("#wrapper").remove();
-	$("body").append('<div id="wrapper"></div>');
-	var endrow = "";
-	for(var i=0;i<square_quantity;i++)
-	{
-		$("#wrapper").append('<div id=' + i + ' class="row"></div>');
-		for(var j=0;j<square_quantity;j++)
-		{
-			$(".row#"+i).append('<div class="cell"></div>');
-		}
-	}
-	var size = ((960)/square_quantity);
-	$(".row").css(
-		{"display":"inline-block"}
-	);
-	$(".cell").css(
-		{"border":"1px solid grey", 
-		"height" : ""+(size-2),
-		"width" : ""+(size-2),
-		"background-color":"rgb(255,255,255)"}
-	);
 };
 
 
