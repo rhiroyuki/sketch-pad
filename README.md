@@ -1,2 +1,3 @@
 # sketch-pad
-sketch pad project from The Odin Project
+## Sketch Pag Project
+project from [The Odin Project](http://www.theodinproject.com/)
